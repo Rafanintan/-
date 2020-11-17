@@ -1,7 +1,22 @@
+interface devicebasic           //interface askisis 5
+{
+    void poweron ();
+    void powerof ();
+    int periodicmantainance();
+    boolean status();
+}
+
+
+
+
+
+
+
+
 public class homeappliancesstore
 {
     static homeappliancesstore company = new homeappliancesstore();
-    public static String name;         //Δήλωση μεταβλητών
+    public static String name;         //Dilosi metabliton
     public static String address;
     public static int workers_num;
     Fridge fx550 = new Fridge();
@@ -36,70 +51,70 @@ public class homeappliancesstore
         return workers_num;
     }
 
-    public class Fridge                 //Class Ψυγείο
+    public class Fridge extends device                //Class Fridge
     {
-        float len;                      //Μήκος
-        float height;                   //Ύψος
-        float depth;                    //Βάθος
-        String manu_name;               //Όνομα Κατασκευαστή
-        String obj_name;                //Όνομα Αντικειμένου
-        String type;                    //Είδος Αντικειμένου
-        int energy_con;                 //Κατανάλωση Ενέργειας
-        int capacity;                   //Χωριτικότητα
-        int motor;                      //Μοτέρ
-        String bottle_holder;           //Μπουκαλοθήκη
-        String ice_machine;             //Παγομηχανή
-        String cooling_type;            //Τύπος Ψύξης
+        float len;                      //Mhkos
+        float height;                   //Ypsos
+        float depth;                    //Bathos
+        String manu_name;               //Name kataskeuasti
+        String obj_name;                //Name antikeimenou
+        String type;                    //Eidos antikeimenou
+        int energy_con;                 //Katanalosi energy
+        int capacity;                   //Xoritikotita
+        int motor;                      //Motor
+        String bottle_holder;           //Mpoukalothiki
+        String ice_machine;             //Pagomixani
+        String cooling_type;            //Type psiksis
     }
-    public class washingmachine         //Class Πλυντήριο
+    public class washingmachine extends device          //Class Plintirio
     {
-        float len;                      //Μήκος
-        float height;                   //Ύψος
-        float depth;                    //Βάθος
-        String manu_name;               //Όνομα Κατασκευαστή
-        String obj_name;                //Όνομα Αντικειμένου
-        String type;                    //Είδος Αντικειμένου
-        int energy_con;                 //Κατανάλωση Ενέργειας
-        int turns;                      //Στροφές
-        int num_prog;                   //Αριθμός Προγραμμάτων
-        int wash_noise;                 //Επίπεδο Θορύβου Πλύσης
-        int spin_noise;                 //Επίπεδο Θορύβου Στυψίματος
-        String spin_class;              //Κλάση στυψίματος
+        float len;                      //Mhkos
+        float height;                   //Ypsos
+        float depth;                    //Bathos
+        String manu_name;               //name manufactorer
+        String obj_name;                //object name
+        String type;                    //Eidos Antikeimenou
+        int energy_con;                 //Energy consumption
+        int turns;                      //Turns
+        int num_prog;                   //Total number of programms
+        int wash_noise;                 //Wash noise
+        int spin_noise;                 //Spin noise
+        String spin_class;              //Spin class
     }
-    public class oven                   //Class Φούρνος
+    public class oven extends device                    //Class Oven
     {
-        float len;                      //Μήκος
-        float height;                   //Ύψος
-        float depth;                    //Βάθος
-        String manu_name;               //Όνομα Κατασκευαστή
-        String obj_name;                //Όνομα Αντικειμένου
-        String type;                    //Είδος Αντικειμένου
-        int energy_con;                 //Κατανάλωση Ενέργειας
-        String catalytic_walls;         //Καταλυτικά τοιχώματα
-        String hydrolysis;              //Υδρόλυση
-        String elec_programmer;         //Ηλεκτρονικός προγραμματιστής
-        int modes;                      //Τρόποι λειτουργίας
-        String sec_lock;                //Κλείδωμα ασφαλείας
+        float len;                      //Mhkos
+        float height;                   //Ypsos
+        float depth;                    //Bathos
+        String manu_name;               //Manufacturer name
+        String obj_name;                //Object name
+        String type;                    //Eidos antikeimenou
+        int energy_con;                 //Energy Consumption
+        String catalytic_walls;         //Katalitika toixomata
+        String hydrolysis;              //Ydrolisi
+        String elec_programmer;         //Hlektronikos programmatismos
+        int modes;                      //Modes
+        String sec_lock;                //Security lock
     }
-    public class aircondition           //Class AirCondition
+    public class aircondition extends device            //Class AirCondition
     {
-        float len;                      //Μήκος
-        float height;                   //Ύψος
-        float depth;                    //Βάθος
-        String manu_name;               //Όνομα Κατασκευαστή
-        String obj_name;                //Όνομα Αντικειμένου
-        String type;                    //Είδος Αντικειμένου
-        int energy_con;                 //Κατανάλωση Ενέργειας
-        int cooling_effi;               //Ψυκτική απόδοση
-        int heating_effi;               //Θερμική απόδοση
-        int in_sound;                   //Ηχητική Ισχύς Εσωτερικής Μονάδας
-        int out_sound;                  //Επίπεδο θορύβου εξωτερικής μονάδας
-        int ex_air;                     //Εξωτερική παροχή αέρα
+        float len;                      //Mhkos
+        float height;                   //Ypsos
+        float depth;                    //Bathos
+        String manu_name;               //Manufacturer name
+        String obj_name;                //Object name
+        String type;                    //Eidos antikeimenou
+        int energy_con;                 //Energy consumption
+        int cooling_effi;               //Cooling efficiency
+        int heating_effi;               //Heating efficiency
+        int in_sound;                   //Inside noise
+        int out_sound;                  //Outside noise
+        int ex_air;                     //Exhaling air
 
     }
     public void setfridge(float newlen,float newheight,float newdepth, String newmanu_menu,String newobj_name,
                           String newtype,int newenergy_con,int newcapacity,int newmotor,String newbottle_holder,
-                          String newice_machine,String newcooling_type)     //Setter για το fridge
+                          String newice_machine,String newcooling_type)     //Setter gia to fridge
     {
        fx550.len  = newlen;
        fx550.height = newheight;
@@ -116,7 +131,7 @@ public class homeappliancesstore
     }
     public void setwashingmachine(float newlen,float newheight,float newdepth, String newmanu_menu,String newobj_name,
                           String newtype,int newenergy_con,int newturns,int newnum_prog,int newwash_noise,
-                          int newspin_noise,String spin_class)     //Setter για το washingmachine
+                          int newspin_noise,String spin_class)     //Setter gia to washingmachine
     {
         GRU330.len  = newlen;
         GRU330.height = newheight;
@@ -133,7 +148,7 @@ public class homeappliancesstore
     }
     public void setoven(float newlen,float newheight,float newdepth, String newmanu_menu,String newobj_name,
                                   String newtype,int newenergy_con,String newcatalytic_walls,String newhydrolysis,
-                                  String newelec_programmer, int newmodes,String newsec_lock) //Setter για το oven
+                                  String newelec_programmer, int newmodes,String newsec_lock) //Setter gia to oven
     {
         tritufx.len  = newlen;
         tritufx.height = newheight;
@@ -150,7 +165,7 @@ public class homeappliancesstore
     }
     public void setaircondition(float newlen,float newheight,float newdepth, String newmanu_menu,String newobj_name,
                         String newtype,int newenergy_con,int newcooling_effi,int newheating_effi,
-                        int newin_sound, int newout_sound,int newex_air) //Setter για το aircondition
+                        int newin_sound, int newout_sound,int newex_air) //Setter gia to aircondition
     {
         mitsu110.len  = newlen;
         mitsu110.height = newheight;
@@ -359,10 +374,45 @@ public class homeappliancesstore
         return mitsu110.ex_air;
     }
 
-    public static void main(String args[])  //Εκτέλεση προγράμματος
+
+    public class device implements devicebasic
+    {
+        float len;                      //Mhkos
+        float height;                   //Ypsos
+        float depth;                    //Bathos
+        String manu_name;               //Manufacturer name
+        String obj_name;                //Object name
+        String type;                    //Eidos antikeimenou
+        int energy_con;                 //Energy Consumption
+
+        boolean stats;                  //Anoixti h klisti syskeui
+
+        public void poweron() {
+            stats = true;
+        }
+
+
+        public void powerof() {
+            stats = false;
+        }
+
+
+        public int periodicmantainance() {
+            return 0;
+        }
+
+
+        public boolean status() {
+            return stats;
+        }
+    }
+
+
+
+    public static void main(String args[])  //Ektelesi Programmatos
     {
 
-
+        /*              //ASKHSH3
         try
         {
             company.setname(args[0]);
@@ -387,6 +437,8 @@ public class homeappliancesstore
         {
             System.out.println("Something Went Wrong");
         }
+         */
+        /*                          //ASKHSH 4
         company.setfridge(Float.parseFloat(args[3]),Float.parseFloat(args[4]),Float.parseFloat(args[5]),args[6],
                           args[7],args[8],Integer.parseInt(args[9]),Integer.parseInt(args[10]),
                           Integer.parseInt(args[11]),args[12],args[13], args[14]);
@@ -402,7 +454,8 @@ public class homeappliancesstore
                                                  Integer.parseInt(args[46]),Integer.parseInt(args[47]),
                                                  Integer.parseInt(args[48]),Integer.parseInt(args[49]),
                                                  Integer.parseInt(args[50]));
-
+         */
+        /*          //ASKHSH 4
         System.out.println("Fridge length:"+company.getfridgelen());
         System.out.println("Fridge height:"+company.getfridgeheight());
         System.out.println("Fridge depth:"+company.getfridgedepth());
@@ -454,7 +507,25 @@ public class homeappliancesstore
         System.out.println("AirCondition inside sound:"+company.getairinsound());
         System.out.println("AirCondition outside sound:"+company.getairoutsound());
         System.out.println("AirCondition exhale air:"+company.getairexair());
-
+        */
+        company.fx550.poweron();            //ASKHSH 5
+        company.tritufx.poweron();
+        if(company.fx550 instanceof Fridge)
+        {
+            System.out.println("Fridge: " + company.fx550.status());
+        }
+        if(company.GRU330 instanceof washingmachine)
+        {
+            System.out.println("Washingmachine: " + company.GRU330.status());
+        }
+        if(company.tritufx instanceof oven)
+        {
+            System.out.println("Oven: " + company.tritufx.status());
+        }
+        if(company.mitsu110 instanceof aircondition)
+        {
+            System.out.println("Aircondition: " + company.mitsu110.status());
+        }
 
     }
 
