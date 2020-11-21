@@ -51,7 +51,7 @@ public class homeappliancesstore
         return workers_num;
     }
 
-    public class Fridge extends device                //Class Fridge
+    public class Fridge extends Device                //Class Fridge
     {
         float len;                      //Mhkos
         float height;                   //Ypsos
@@ -66,7 +66,7 @@ public class homeappliancesstore
         String ice_machine;             //Pagomixani
         String cooling_type;            //Type psiksis
     }
-    public class washingmachine extends device          //Class Plintirio
+    public class washingmachine extends Device         //Class Plintirio
     {
         float len;                      //Mhkos
         float height;                   //Ypsos
@@ -81,7 +81,7 @@ public class homeappliancesstore
         int spin_noise;                 //Spin noise
         String spin_class;              //Spin class
     }
-    public class oven extends device                    //Class Oven
+    public class oven extends Device                    //Class Oven
     {
         float len;                      //Mhkos
         float height;                   //Ypsos
@@ -96,7 +96,7 @@ public class homeappliancesstore
         int modes;                      //Modes
         String sec_lock;                //Security lock
     }
-    public class aircondition extends device            //Class AirCondition
+    public class aircondition extends Device           //Class AirCondition
     {
         float len;                      //Mhkos
         float height;                   //Ypsos
@@ -375,37 +375,7 @@ public class homeappliancesstore
     }
 
 
-    public class device implements devicebasic
-    {
-        float len;                      //Mhkos
-        float height;                   //Ypsos
-        float depth;                    //Bathos
-        String manu_name;               //Manufacturer name
-        String obj_name;                //Object name
-        String type;                    //Eidos antikeimenou
-        int energy_con;                 //Energy Consumption
 
-        boolean stats;                  //Anoixti h klisti syskeui
-
-        public void poweron() {
-            stats = true;
-        }
-
-
-        public void powerof() {
-            stats = false;
-        }
-
-
-        public int periodicmantainance() {
-            return 0;
-        }
-
-
-        public boolean status() {
-            return stats;
-        }
-    }
 
 
 
