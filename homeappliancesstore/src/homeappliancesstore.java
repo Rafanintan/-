@@ -416,7 +416,7 @@ public class homeappliancesstore
             System.out.println("Something Went Wrong");
         }
          */
-        /*
+
                                   //ASKHSH 4
         company.setfridge(Float.parseFloat(args[3]),Float.parseFloat(args[4]),Float.parseFloat(args[5]),args[6],
                           args[7],args[8],Integer.parseInt(args[9]),Integer.parseInt(args[10]),
@@ -434,7 +434,7 @@ public class homeappliancesstore
                                                  Integer.parseInt(args[48]),Integer.parseInt(args[49]),
                                                  Integer.parseInt(args[50]));
 
-         */
+
 
         /*          //ASKHSH 4
         System.out.println("Fridge length:"+company.getfridgelen());
@@ -571,32 +571,22 @@ public class homeappliancesstore
         {
             return;
         }
-
+        ObjectOutputStream out = null;
         try                                                     //Telos apothikeuei ta serialized stoixeia ton array
-                                                                //Se enan text output
-        {
-            BufferedWriter bw = new BufferedWriter(
-                    new FileWriter("C:\\Users\\rafnt\\Desktop\\Js\\homeappliancesstore\\Output.txt"));
-            for(int i=0 ; i<totalobjects;i++)
-            {
-                bw.write(String.valueOf(fridgearray[i].obj_name));
-            }
-            for(int i=0 ; i<totalobjects;i++)
-            {
-                bw.write(String.valueOf(washingarray[i]));
-            }
-            for(int i=0 ; i<totalobjects;i++)
-            {
-                bw.write(String.valueOf(ovenarray[i]));
-            }
-            for(int i=0 ; i<totalobjects;i++)
-            {
-                bw.write(String.valueOf(airarray[i]));
-            }
+        {                                                       //Se enan text output
+            out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("out.txt"))));
+            
+                out.writeObject(fridgearray);
+                out.writeObject(washingarray);
+                out.writeObject(ovenarray);
+                out.writeObject(airarray);
+
+
+            out.close();
         }
         catch (Exception ex)
         {
-
+            return;
         }
 
     }
