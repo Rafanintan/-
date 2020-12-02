@@ -1,3 +1,5 @@
+import java.io.*;
+
 interface devicebasic           //interface askisis 5
 {
     void poweron ();
@@ -23,6 +25,12 @@ public class homeappliancesstore
     washingmachine GRU330 = new washingmachine();
     oven tritufx = new oven();
     aircondition mitsu110 = new aircondition();
+    public static int totalobjects;
+    public static int objectnumber =0;
+    public static Fridge [] fridgearray;
+    public static washingmachine [] washingarray;
+    public static oven [] ovenarray;
+    public static aircondition [] airarray;
     public void setname(String newname)     //Setter gia name
     {
         name = newname;
@@ -51,7 +59,7 @@ public class homeappliancesstore
         return workers_num;
     }
 
-    public class Fridge extends Device                //Class Fridge
+    public class Fridge extends Device implements Serializable                //Class Fridge
     {
         float len;                      //Mhkos
         float height;                   //Ypsos
@@ -66,7 +74,7 @@ public class homeappliancesstore
         String ice_machine;             //Pagomixani
         String cooling_type;            //Type psiksis
     }
-    public class washingmachine extends Device         //Class Plintirio
+    public class washingmachine extends Device implements Serializable        //Class Plintirio
     {
         float len;                      //Mhkos
         float height;                   //Ypsos
@@ -81,7 +89,7 @@ public class homeappliancesstore
         int spin_noise;                 //Spin noise
         String spin_class;              //Spin class
     }
-    public class oven extends Device                    //Class Oven
+    public class oven extends Device  implements Serializable                  //Class Oven
     {
         float len;                      //Mhkos
         float height;                   //Ypsos
@@ -96,7 +104,7 @@ public class homeappliancesstore
         int modes;                      //Modes
         String sec_lock;                //Security lock
     }
-    public class aircondition extends Device           //Class AirCondition
+    public class aircondition extends Device implements Serializable          //Class AirCondition
     {
         float len;                      //Mhkos
         float height;                   //Ypsos
@@ -408,7 +416,8 @@ public class homeappliancesstore
             System.out.println("Something Went Wrong");
         }
          */
-        /*                          //ASKHSH 4
+        /*
+                                  //ASKHSH 4
         company.setfridge(Float.parseFloat(args[3]),Float.parseFloat(args[4]),Float.parseFloat(args[5]),args[6],
                           args[7],args[8],Integer.parseInt(args[9]),Integer.parseInt(args[10]),
                           Integer.parseInt(args[11]),args[12],args[13], args[14]);
@@ -424,7 +433,9 @@ public class homeappliancesstore
                                                  Integer.parseInt(args[46]),Integer.parseInt(args[47]),
                                                  Integer.parseInt(args[48]),Integer.parseInt(args[49]),
                                                  Integer.parseInt(args[50]));
+
          */
+
         /*          //ASKHSH 4
         System.out.println("Fridge length:"+company.getfridgelen());
         System.out.println("Fridge height:"+company.getfridgeheight());
@@ -478,6 +489,7 @@ public class homeappliancesstore
         System.out.println("AirCondition outside sound:"+company.getairoutsound());
         System.out.println("AirCondition exhale air:"+company.getairexair());
         */
+        /*
         company.fx550.poweron();            //ASKHSH 5
         company.tritufx.poweron();
         if(company.fx550 instanceof Fridge)
@@ -495,6 +507,96 @@ public class homeappliancesstore
         if(company.mitsu110 instanceof aircondition)
         {
             System.out.println("Aircondition: " + company.mitsu110.status());
+        }
+         */
+                                                //ASKHSH 6
+        try                                                     //emfanizei ta stoixeia tou text
+        {
+            BufferedReader br = new BufferedReader(
+                                new FileReader("C:\\Users\\rafnt\\Desktop\\Js\\homeappliancesstore\\Objects.txt"));
+            String s;
+            while((s = br.readLine()) !=null)
+            {
+                System.out.println(s);
+            }
+            br.close();
+
+
+
+        }
+        catch(Exception ex)
+        {
+            return;
+        }
+
+
+        try                                     //emfanizei to synolo ton objects kai ftiaxnei ta arrays
+        {
+            BufferedReader br = new BufferedReader(
+                    new FileReader("C:\\Users\\rafnt\\Desktop\\Js\\homeappliancesstore\\Objects.txt"));
+            int value;
+            char c;
+            while((value = br.read()) != -1) {
+
+                // converts int to character
+                c = (char) value;
+
+                if(Character.isDigit(c))
+                {
+                    totalobjects += Character.getNumericValue(c);
+                    objectnumber +=1;
+                    if(objectnumber == 1)
+                    {
+                        fridgearray = new Fridge[Character.getNumericValue(c)];
+                    }
+                    else if(objectnumber == 2)
+                    {
+                        washingarray = new washingmachine[Character.getNumericValue(c)];
+                    }
+                    else if(objectnumber == 3)
+                    {
+                        ovenarray = new oven[Character.getNumericValue(c)];
+                    }
+                    else if(objectnumber == 1)
+                    {
+                        airarray = new aircondition[Character.getNumericValue(c)];
+                    }
+                }
+
+
+            }
+            System.out.println("The total number of objects is: "+totalobjects);
+        }
+        catch(Exception ex)
+        {
+            return;
+        }
+
+        try                                                     //Telos apothikeuei ta serialized stoixeia ton array
+                                                                //Se enan text output
+        {
+            BufferedWriter bw = new BufferedWriter(
+                    new FileWriter("C:\\Users\\rafnt\\Desktop\\Js\\homeappliancesstore\\Output.txt"));
+            for(int i=0 ; i<totalobjects;i++)
+            {
+                bw.write(String.valueOf(fridgearray[i].obj_name));
+            }
+            for(int i=0 ; i<totalobjects;i++)
+            {
+                bw.write(String.valueOf(washingarray[i]));
+            }
+            for(int i=0 ; i<totalobjects;i++)
+            {
+                bw.write(String.valueOf(ovenarray[i]));
+            }
+            for(int i=0 ; i<totalobjects;i++)
+            {
+                bw.write(String.valueOf(airarray[i]));
+            }
+        }
+        catch (Exception ex)
+        {
+
         }
 
     }

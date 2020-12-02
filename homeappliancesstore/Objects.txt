@@ -1,0 +1,4 @@
+Fridge 1
+washingmachine 1
+oven 1
+aircondition 1
